@@ -7,19 +7,21 @@ const Hero = () => (
     style={{
       background: "linear-gradient(to right, #00779c 0%, #00a9c6 100%)",
       color: "#fff",
-      minHeight: "80vh",
+      minHeight: "70vh",
       display: "flex",
       alignItems: "center",
+      position: "relative",
     }}
   >
     <Container>
       <Row className="align-items-center">
-        <Col md={6} className="text-center text-md-start mb-4 mb-md-0">
+        {/* Text Column */}
+        <Col xs={12} md={6} className="text-center text-md-start mb-4 mb-md-0">
           <motion.h1
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="display-4 fw-bold"
+            className="display-5 fw-bold"
           >
             Welcome to ProSmile Dentistry
           </motion.h1>
@@ -41,14 +43,33 @@ const Hero = () => (
             </Button>
           </motion.div>
         </Col>
-        <Col md={6} className="text-center">
+
+        {/* Image Column */}
+        <Col xs={12} md={6} className="text-center position-relative">
           <motion.img
             src={heroImage}
             alt="Doctors"
             className="img-fluid rounded-4 shadow-lg"
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            style={{
+              maxHeight: "220px",
+              width: "100%",
+              objectFit: "cover",
+              filter: "brightness(1.05) contrast(1.05)",
+            }}
+            initial={{ y: -10 }}
+            animate={{ y: 10 }}
+            transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background: "rgba(0,0,0,0.15)",
+              borderRadius: "16px",
+            }}
           />
         </Col>
       </Row>

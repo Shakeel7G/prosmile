@@ -6,7 +6,7 @@ const About = () => (
   <section id="about" className="py-5">
     <Container>
       <Row className="align-items-center">
-        <Col md={6}>
+        <Col md={6} className="mb-4 mb-md-0">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -22,14 +22,15 @@ const About = () => (
             At ProSmile Dentistry, we combine expertise with a friendly environment to give you the best care possible.
           </motion.p>
         </Col>
-        <Col md={6}>
+        <Col md={6} className="text-center">
           <motion.img
             src={aboutImage}
             alt="About ProSmile"
             className="img-fluid rounded-4 shadow-lg"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
+            style={{ maxHeight: "250px", width: "100%", objectFit: "cover" }}
+            initial={{ y: -5 }}
+            whileInView={{ y: 5 }}
+            transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
           />
         </Col>
       </Row>
