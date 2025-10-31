@@ -1,26 +1,33 @@
-import React from "react";
-import NavBar from "./components/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavbarComponent from "./components/Navbar";
 import Hero from "./components/Hero";
-import Services from "./components/Services";
 import About from "./components/About";
-import Testimonials from "./components/Testimonials";
+import Services from "./components/Services";
 // import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
-const App: React.FC = () => {
+function App() {
   return (
-    <>
-      <NavBar />
-      <Hero />
-      <Services />
-      <About />
-      <Testimonials />
-      {/* <Gallery /> */}
-      <Contact />
+    <Router>
+      <NavbarComponent />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <About />
+              <Services />
+              {/* <Gallery /> */}
+              <Contact />
+            </>
+          }
+        />
+      </Routes>
       <Footer />
-    </>
+    </Router>
   );
-};
+}
 
 export default App;
